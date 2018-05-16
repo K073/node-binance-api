@@ -356,8 +356,8 @@ module.exports = function() {
      */
     const subscribe = function(endpoint, callback, reconnect = false, opened_callback = false) {
 
-        let httpsproxy = process.env.https_proxy || false;
-        let socksproxy = process.env.socks_proxy || false;
+        let httpsproxy = options.https_proxy || false;
+        let socksproxy = options.socks_proxy || false;
         let ws = false;
 
         if ( socksproxy !== false ) {
@@ -406,8 +406,8 @@ module.exports = function() {
      */
     const subscribeCombined = function(streams, callback, reconnect = false, opened_callback = false) {
 
-        let httpsproxy = process.env.https_proxy || false;
-        let socksproxy = process.env.socks_proxy || false;
+        let httpsproxy = options.https_proxy || false;
+        let socksproxy = options.socks_proxy || false;
         const queryParams = streams.join('/');
         let ws = false;
 
@@ -1144,7 +1144,7 @@ module.exports = function() {
             const params = typeof symbol === 'string' ? '?symbol='+symbol : '';
             if ( typeof symbol === 'function' ) callback = symbol; // backwards compatibility
 
-            let socksproxy = process.env.socks_proxy || false;
+            let socksproxy = options.socks_proxy || false;
 
             let opt = {
                 url: base+'v3/ticker/price'+params,
@@ -1183,7 +1183,7 @@ module.exports = function() {
             const params = typeof symbol === 'string' ? '?symbol='+symbol : '';
             if ( typeof symbol === 'function' ) callback = symbol; // backwards compatibility
 
-            let socksproxy = process.env.socks_proxy || false;
+            let socksproxy = options.socks_proxy || false;
 
             let opt = {
                 url: base+'v3/ticker/bookTicker'+params,
