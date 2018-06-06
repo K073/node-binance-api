@@ -95,7 +95,8 @@ module.exports = function () {
     opt.agentOptions = {
       protocol: parseProxy(socksproxy)[0],
       host: parseProxy(socksproxy)[1],
-      port: parseProxy(socksproxy)[2]
+      port: parseProxy(socksproxy)[2],
+      auth: options.socks_login + ':' + options.socks_password
     };
     return opt;
   }
@@ -372,7 +373,8 @@ module.exports = function () {
       let agent = new SocksProxyAgent({
         protocol: parseProxy(socksproxy)[0],
         host: parseProxy(socksproxy)[1],
-        port: parseProxy(socksproxy)[2]
+        port: parseProxy(socksproxy)[2],
+        auth: options.socks_login + ':' + options.socks_password
       });
       ws = new WebSocket(stream + endpoint, {agent: agent});
     } else if (httpsproxy !== false) {
@@ -424,6 +426,7 @@ module.exports = function () {
         protocol: parseProxy(socksproxy)[0],
         host: parseProxy(socksproxy)[1],
         port: parseProxy(socksproxy)[2],
+        auth: options.socks_login + ':' + options.socks_password
       });
       ws = new WebSocket(combineStream + queryParams, {agent: agent});
     } else if (httpsproxy !== false) {
@@ -1169,6 +1172,7 @@ module.exports = function () {
           protocol: parseProxy(socksproxy)[0],
           host: parseProxy(socksproxy)[1],
           port: parseProxy(socksproxy)[2],
+          auth: options.socks_login + ':' + options.socks_password
         }
       }
 
@@ -1208,6 +1212,7 @@ module.exports = function () {
           protocol: parseProxy(socksproxy)[0],
           host: parseProxy(socksproxy)[1],
           port: parseProxy(socksproxy)[2],
+          auth: options.socks_login + ':' + options.socks_password
         }
       }
 
