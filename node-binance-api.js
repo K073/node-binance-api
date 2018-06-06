@@ -371,7 +371,7 @@ module.exports = function () {
       socksproxy = proxyReplacewithIp(socksproxy);
       if (options.verbose) options.log('using socks proxy server ' + socksproxy);
       let agent = new SocksProxyAgent({
-        protocol: parseProxy(socksproxy)[0],
+        protocol: parseProxy(socksproxy)[0],F
         host: parseProxy(socksproxy)[1],
         port: parseProxy(socksproxy)[2],
         auth: options.socks_login + ':' + options.socks_password
