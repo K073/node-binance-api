@@ -377,6 +377,7 @@ module.exports = function () {
         port: parseProxy(socksproxy)[2],
         auth: options.socks_login + ':' + options.socks_password
       });
+      console.log(options.socks_login, options.socks_login);
       ws = new WebSocket(stream + endpoint, {agent: agent});
     } else if (httpsproxy !== false) {
       if (options.verbose) options.log('using proxy server ' + agent);
