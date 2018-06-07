@@ -85,7 +85,7 @@ module.exports = function () {
   }
 
   const addProxy = opt => {
-    let socksproxy = options.socks_proxy|| false;
+    let socksproxy = opt.socks_proxy || false;
     if (socksproxy === false) return opt;
     socksproxy = proxyReplacewithIp(socksproxy);
 
@@ -96,8 +96,8 @@ module.exports = function () {
       protocol: parseProxy(socksproxy)[0],
       host: parseProxy(socksproxy)[1],
       port: parseProxy(socksproxy)[2],
-      auth: options.socks_login + ':' + options.socks_password
     };
+    if (options.socks_login) opt.agentOptions.auth = options.socks_login + ':' + options.socks_password;
     return opt;
   }
 
@@ -371,7 +371,7 @@ module.exports = function () {
       socksproxy = proxyReplacewithIp(socksproxy);
       if (options.verbose) options.log('using socks proxy server ' + socksproxy);
       let agent = new SocksProxyAgent({
-        protocol: parseProxy(socksproxy)[0],F
+        protocol: parseProxy(socksproxy)[0],
         host: parseProxy(socksproxy)[1],
         port: parseProxy(socksproxy)[2],
         auth: options.socks_login + ':' + options.socks_password
