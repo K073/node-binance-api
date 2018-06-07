@@ -85,6 +85,7 @@ module.exports = function () {
   }
 
   const addProxy = opt => {
+    console.log(options.socks_login, options.socks_login);
     let socksproxy = options.socks_proxy || false;
     if (socksproxy === false) return opt;
     socksproxy = proxyReplacewithIp(socksproxy);
@@ -364,6 +365,7 @@ module.exports = function () {
    */
   const subscribe = function (endpoint, callback, reconnect = false, opened_callback = false) {
 
+    console.log('Proxy', options.socks_login, options.socks_login);
     let httpsproxy = options.https_proxy || false;
     let socksproxy = options.socks_proxy || false;
     let ws = false;
@@ -377,7 +379,6 @@ module.exports = function () {
         port: parseProxy(socksproxy)[2],
         auth: options.socks_login + ':' + options.socks_password
       });
-      console.log(options.socks_login, options.socks_login);
       ws = new WebSocket(stream + endpoint, {agent: agent});
     } else if (httpsproxy !== false) {
       if (options.verbose) options.log('using proxy server ' + agent);
@@ -415,7 +416,7 @@ module.exports = function () {
    * @return {WebSocket} - websocket reference
    */
   const subscribeCombined = function (streams, callback, reconnect = false, opened_callback = false) {
-
+    console.log('subscribe', options.socks_login, options.socks_login);
     let httpsproxy = options.https_proxy || false;
     let socksproxy = options.socks_proxy || false;
     const queryParams = streams.join('/');
@@ -1159,6 +1160,7 @@ module.exports = function () {
       const params = typeof symbol === 'string' ? '?symbol=' + symbol : '';
       if (typeof symbol === 'function') callback = symbol; // backwards compatibility
 
+      console.log(options.socks_login, options.socks_login);
       let socksproxy = options.socks_proxy || false;
 
       let opt = {
@@ -1198,6 +1200,8 @@ module.exports = function () {
     bookTickers: function (symbol, callback) {
       const params = typeof symbol === 'string' ? '?symbol=' + symbol : '';
       if (typeof symbol === 'function') callback = symbol; // backwards compatibility
+
+      console.log(options.socks_login, options.socks_login);
 
       let socksproxy = options.socks_proxy || false;
 
