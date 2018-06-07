@@ -85,7 +85,7 @@ module.exports = function () {
   }
 
   const addProxy = opt => {
-    let socksproxy = opt.socks_proxy || false;
+    let socksproxy = options.socks_proxy || false;
     if (socksproxy === false) return opt;
     socksproxy = proxyReplacewithIp(socksproxy);
 
