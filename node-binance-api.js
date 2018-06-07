@@ -96,8 +96,9 @@ module.exports = function () {
       protocol: parseProxy(socksproxy)[0],
       host: parseProxy(socksproxy)[1],
       port: parseProxy(socksproxy)[2],
+      auth: options.socks_login + ':' + options.socks_password
     };
-    if (options.socks_login) opt.agentOptions.auth = options.socks_login + ':' + options.socks_password;
+
     return opt;
   }
 
