@@ -85,7 +85,7 @@ module.exports = function () {
   }
 
   const addProxy = opt => {
-    console.log(options.socks_login, options.socks_login);
+    console.log('Use proxy: ', options.socks_proxy, options.socks_login, options.socks_password);
     let socksproxy = options.socks_proxy || false;
     if (socksproxy === false) return opt;
     socksproxy = proxyReplacewithIp(socksproxy);
@@ -365,7 +365,7 @@ module.exports = function () {
    */
   const subscribe = function (endpoint, callback, reconnect = false, opened_callback = false) {
 
-    console.log('Proxy', options.socks_login, options.socks_login);
+    console.log('Use proxy: ', options.socks_proxy, options.socks_login, options.socks_password);
     let httpsproxy = options.https_proxy || false;
     let socksproxy = options.socks_proxy || false;
     let ws = false;
@@ -416,7 +416,7 @@ module.exports = function () {
    * @return {WebSocket} - websocket reference
    */
   const subscribeCombined = function (streams, callback, reconnect = false, opened_callback = false) {
-    console.log('subscribe', options.socks_login, options.socks_login);
+    console.log('Use proxy: ', options.socks_proxy, options.socks_login, options.socks_password);
     let httpsproxy = options.https_proxy || false;
     let socksproxy = options.socks_proxy || false;
     const queryParams = streams.join('/');
@@ -1160,7 +1160,7 @@ module.exports = function () {
       const params = typeof symbol === 'string' ? '?symbol=' + symbol : '';
       if (typeof symbol === 'function') callback = symbol; // backwards compatibility
 
-      console.log(options.socks_login, options.socks_login);
+      console.log('Use proxy: ', options.socks_proxy, options.socks_login, options.socks_password);
       let socksproxy = options.socks_proxy || false;
 
       let opt = {
@@ -1201,7 +1201,7 @@ module.exports = function () {
       const params = typeof symbol === 'string' ? '?symbol=' + symbol : '';
       if (typeof symbol === 'function') callback = symbol; // backwards compatibility
 
-      console.log(options.socks_login, options.socks_login);
+      console.log('Use proxy: ', options.socks_proxy, options.socks_login, options.socks_password);
 
       let socksproxy = options.socks_proxy || false;
 
