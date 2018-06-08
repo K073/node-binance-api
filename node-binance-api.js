@@ -92,6 +92,7 @@ module.exports = function () {
 
     if (options.verbose) options.log('using socks proxy server ' + socksproxy);
 
+    opt.agentClass = SocksProxyAgent;
     opt.agentOptions = {
       protocol: parseProxy(socksproxy)[0],
       host: parseProxy(socksproxy)[1],
@@ -99,10 +100,8 @@ module.exports = function () {
       auth: options.socks_login + ':' + options.socks_password
     };
 
-    opt.agentClass = new SocksProxyAgent(opt.agentOptions);
-
     return opt;
-  }
+  };
 
   const reqHandler = cb => (error, response, body) => {
     if (!cb) return;

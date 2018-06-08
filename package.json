@@ -7,8 +7,8 @@
     "dns-sync": "^0.1.3",
     "fs": "0.0.1-security",
     "https-proxy-agent": "^2.2.1",
-    "request": "^2.85.0",
-    "socks-proxy-agent": "^4.0.1",
+    "request": "^2.87.0",
+    "socks-proxy-agent": "https://github.com/K073/node-socks-proxy-agent.git",
     "string-hash": "^1.1.3",
     "url": "^0.11.0",
     "ws": "^4.1.0"
@@ -40,13 +40,13 @@
     "chai": "^4.1.2",
     "chai-counter": "^1.0.0",
     "codacy-coverage": "^2.1.1",
-    "codecov": "^3.0.0",
+    "codecov": "^3.0.2",
     "coveralls": "^3.0.0",
     "eslint": "^4.19.1",
     "istanbul": "^0.4.5",
     "jsdoc": "^3.5.5",
-    "mocha": "^5.0.5",
+    "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",
-    "nyc": "^11.6.0"
+    "nyc": "^11.9.0"
   }
 }
