@@ -7,6 +7,7 @@
     "dns-sync": "^0.1.3",
     "fs": "0.0.1-security",
     "https-proxy-agent": "^2.2.1",
+    "proxy-agent": "^3.0.0",
     "request": "^2.87.0",
     "socks-proxy-agent": "https://github.com/K073/node-socks-proxy-agent.git",
     "string-hash": "^1.1.3",
